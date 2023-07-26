@@ -22,8 +22,8 @@ let updateCurrentWeather = (data) => {
    pressure.textContent = data.current.pressure_mb + 'mph';
     wind.textContent = data.current.wind_dir + ', ' + data.current.wind_mph;
     temperature.textContent = data.current.temp_c ;
-    image.src = data.current.condition.icon;
-    image.alt = data.current.condition.text;
+    image.src = 'https://'+data.current.condition.icon;
+    image.alt = 'https://'+data.current.condition.text;
 };
 let updateForecast = (data) => {
     forecastBlock.innerHTML = '';
@@ -36,7 +36,7 @@ let updateForecast = (data) => {
         let forecastItem = document.createElement('article');
         forecastItem.classList.add('weather_forecast_item');
         forecastItem.innerHTML = `
-        <img src="${forecastCondition}" alt="${forecastDay}" class="weather_forecast_icon">
+        <img src="'https://'+${forecastCondition}" alt="${forecastDay}" class="weather_forecast_icon">
         <h3 class="weather_forecast_day">${forecastDay}</h3>
         <p class="weather_forecast_temperature"><span class="value">${forecastTemp}</span>&deg; C</p>
         `;
